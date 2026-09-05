@@ -1,0 +1,12 @@
+{
+  "id": "x",
+  "nombre": "X · Twitter",
+  "estado": "PENDIENTE DE VERIFICAR",
+  "ancho": 1080, "alto": 1350, "fps": 30,
+  "duracion_max_s": null,
+  "zona_segura": { "arriba": 0, "abajo": 0, "derecha": 0 },
+  "margen_contenido": { "arriba": 110, "abajo": 100, "lados": 81 },
+  "codec": { "v": "libx264", "perfil": "high", "nivel": "4.0", "crf": 20, "pix": "yuv420p", "faststart": true },
+  "audio_silencioso": true,
+  "nota": "No se verificaron las especificaciones vigentes de X en esta etapa. Valores provisorios: 4:5 aprovecha mas superficie en la linea de tiempo que 16:9. Confirmar tope de duracion, peso maximo y si recorta en la vista previa antes de usar en produccion."
+}

@@ -1,0 +1,12 @@
+{
+  "id": "historia",
+  "nombre": "Instagram · Historias",
+  "ancho": 1080, "alto": 1920, "fps": 30,
+  "duracion_max_s": 60,
+  "duracion_max_dura": true,
+  "zona_segura": { "arriba": 250, "abajo": 250, "derecha": 0 },
+  "margen_contenido": { "arriba": 213, "abajo": 83, "lados": 81 },
+  "codec": { "v": "libx264", "perfil": "high", "nivel": "4.0", "crf": 20, "pix": "yuv420p", "faststart": true },
+  "audio_silencioso": true,
+  "nota": "Tope duro de 60 s por tarjeta. Si el guion excede, el motor recorta por prioridad de escena."
+}

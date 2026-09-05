@@ -1,0 +1,13 @@
+{
+  "id": "reel",
+  "nombre": "Instagram · Reels",
+  "ancho": 1080, "alto": 1920, "fps": 30,
+  "duracion_max_s": 180,
+  "duracion_max_dura": true,
+  "todo_en_primer_minuto": true,
+  "zona_segura": { "arriba": 250, "abajo": 340, "derecha": 120 },
+  "margen_contenido": { "arriba": 213, "abajo": 360, "lados": 81 },
+  "codec": { "v": "libx264", "perfil": "high", "nivel": "4.0", "crf": 20, "pix": "yuv420p", "faststart": true },
+  "audio_silencioso": true,
+  "nota": "El feed recorta el reel a 4:5, por eso el margen inferior es mayor. Meta unificó zonas seguras en marzo de 2026: diseñar al piso de reels cubre tambien historias."
+}
