@@ -1,0 +1,70 @@
+name: Renderizar video GBX
+
+# Se dispara solo cuando tocás un guion, o a mano desde la pestaña Actions
+on:
+  push:
+    paths: [ 'guiones/**.json' ]
+  workflow_dispatch:
+    inputs:
+      guion:
+        description: 'Archivo de guion (ej: guiones/2026-09_china-biotech.json)'
+        required: true
+        default: 'guiones/_PLANTILLA.json'
+      perfiles:
+        description: 'Perfiles separados por coma'
+        required: true
+        default: 'historia,reel'
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Instalar ffmpeg
+        run: sudo apt-get update && sudo apt-get install -y ffmpeg
+
+      - name: Instalar dependencias
+        run: |
+          pip install -r requirements.txt
+          python -m playwright install --with-deps chromium
+
+      - name: Detectar qué guiones cambiaron
+        id: detectar
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "lista=${{ github.event.inputs.guion }}" >> $GITHUB_OUTPUT
+            echo "perfiles=${{ github.event.inputs.perfiles }}" >> $GITHUB_OUTPUT
+          else
+            CAMBIOS=$(git diff --name-only HEAD^ HEAD -- 'guiones/*.json' | tr '\n' ' ')
+            echo "lista=$CAMBIOS" >> $GITHUB_OUTPUT
+            echo "perfiles=historia,reel" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Renderizar
+        run: |
+          for G in ${{ steps.detectar.outputs.lista }}; do
+            [ -f "$G" ] || continue
+            NOM=$(basename "$G" .json)
+            for P in $(echo "${{ steps.detectar.outputs.perfiles }}" | tr ',' ' '); do
+              echo "::group::$NOM · $P"
+              python3 render.py "$G" --perfil "$P"
+              python3 motor/producir.py "salida/${NOM}__${P}" "perfiles/${P}.json"
+              mkdir -p entrega
+              cp "salida/${NOM}__${P}/GBX_video.mp4" "entrega/${NOM}__${P}.mp4"
+              echo "::endgroup::"
+            done
+          done
+          ls -la entrega/
+
+      - name: Publicar los videos
+        uses: actions/upload-artifact@v4
+        with:
+          name: videos-gbx
+          path: entrega/
+          retention-days: 30
