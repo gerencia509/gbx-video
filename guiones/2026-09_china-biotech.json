@@ -1,0 +1,70 @@
+{
+  "meta": {
+    "titulo": "China vs EE.UU. en biotecnología",
+    "unidad": "GBX Research",
+    "fecha": "2026-09",
+    "fuentes": ["Citeline", "GlobalData", "WHO ICTRP"],
+    "copy_post": "China no alcanzó a Estados Unidos en biotecnología. Lo pasó.\n\nEn 2018 tenía el 8 % del pipeline mundial de candidatos innovadores. Hoy tiene el 30 %.\n\nFuentes: Citeline, GlobalData, WHO ICTRP.\n\n#GBX"
+  },
+  "escenas": [
+    { "bloque": "hook", "prioridad": 1, "dur": 6.3,
+      "eyebrow": "GBX · Biotecnología",
+      "titulo": ["China no", "alcanzó a", "EE.UU."],
+      "remate": "Lo pasó.",
+      "bajada": "Dos métricas estructurales. Ocho años.<br>Todos los datos publicados." },
+
+    { "bloque": "dato", "prioridad": 2, "dur": 6.6,
+      "tag": "Dato 1 de 3", "cifra_a": 0, "cifra_b": 30, "sufijo": "%",
+      "etiqueta": "Del pipeline mundial<br>de candidatos innovadores",
+      "contexto": "Es la cuota de China en 2026.",
+      "contraste": { "label": "En 2018 era", "valor": 8, "sufijo": " %" } },
+
+    { "bloque": "dato", "prioridad": 2, "dur": 6.6,
+      "tag": "Dato 2 de 3", "cifra_a": 0, "cifra_b": 55, "sufijo": "%",
+      "etiqueta": "De los ensayos<br>oncológicos del mundo",
+      "contexto": "Más de la mitad se inician hoy en China.",
+      "contraste": { "label": "En 2016 era", "valor": 25, "sufijo": " %" } },
+
+    { "bloque": "dato", "prioridad": 3, "dur": 6.6, "acento": "rojo",
+      "tag": "Dato 3 de 3", "cifra_a": 2008, "cifra_b": 2021, "sufijo": "",
+      "etiqueta": "El año en que se<br>cruzaron las curvas",
+      "contexto": "Desde entonces China inicia más ensayos<br>oncológicos que Estados Unidos." },
+
+    { "bloque": "comparativa", "prioridad": 1, "dur": 11.6,
+      "eyebrow": "Métrica 1 · Pipeline global",
+      "titulo": ["Cuota de", "candidatos"], "remate": "innovadores",
+      "fuente": "2018 → 2026 · Citeline",
+      "a": { "label": "China", "de": 8, "a": 30, "tasa": 18.0, "barra": 100 },
+      "b": { "label": "Estados Unidos", "de": 47, "a": 36, "tasa": -3.3, "barra": 20 },
+      "lectura": "China ganó {{22 puntos}} de cuota.<br>Estados Unidos perdió {{11}}." },
+
+    { "bloque": "comparativa", "prioridad": 1, "dur": 11.6,
+      "eyebrow": "Métrica 2 · Oncología",
+      "titulo": ["Cuota de", "ensayos"], "remate": "iniciados",
+      "fuente": "2016 → 2025 · GlobalData",
+      "a": { "label": "China", "de": 25, "a": 55, "tasa": 9.2, "barra": 100 },
+      "b": { "label": "Estados Unidos", "de": 27, "a": 14, "tasa": -7.0, "barra": 25 },
+      "lectura": "China {{duplicó}} su cuota.<br>Estados Unidos la redujo {{a la mitad}}." },
+
+    { "bloque": "empate", "prioridad": 2, "dur": 10.4,
+      "eyebrow": "El dato que casi nadie cita",
+      "titulo": ["En volumen", "bruto ya"], "remate": "empataron",
+      "fuente": "Ensayos totales registrados en 2025 · WHO ICTRP",
+      "a": { "label": "China", "valor": "~7.400", "tasa": 4.2, "barra": 100 },
+      "b": { "label": "Estados Unidos", "valor": "~6.250", "tasa": 4.2, "barra": 84 },
+      "lectura": "La ventaja china es un {{stock acumulado}}, no una brecha que se siga abriendo." },
+
+    { "bloque": "conclusion", "prioridad": 1, "dur": 13.2,
+      "eyebrow": "La conclusión",
+      "parrafos": [
+        "Estados Unidos no perdió cuota {{por falta de ciencia.}}",
+        "La perdió mientras otro país hacía que aprobar un ensayo tardara {{87 días en vez de 501.}}"
+      ],
+      "remate": ["Eso no es una ventaja natural.", "Es una decisión administrativa."] },
+
+    { "bloque": "cierre", "prioridad": 1, "dur": 8.0,
+      "url": "www.gbconsultoria.com.ar",
+      "bajada": "Estrategia · Análisis · Resultados" }
+  ],
+  "transiciones": ["slideup:0.40","wipeleft:0.50","wipeleft:0.50","fadeblack:0.50","slideup:0.55","dissolve:0.55","fadeblack:0.50","fadeblack:0.60"]
+}
